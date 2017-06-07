@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <!-- ======= ======= ======= head ======= ======= ======= -->
+	<head>
+	    <meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>MPP_Jukebox</title>
+
+        <!-- === styles === -->
+	    <link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+    <!-- ======= ======= ======= body ======= ======= ======= -->
+	<body>
+		<header>
+			<h1>Play the F**KN track!</h1>
+		</header>
+
+		<div id="jukebox">
+			<div id="audio_player_img">
+				<div id="songInfo"></div>
+			</div>
+
+			<div id="audio_player_controls">
+				<audio id="audio_player">
+					<source id="audio_Source" src="feather.mp3">
+				</audio>
+				<div class="audio_player_buttons">
+					<button id="play"></button>
+					<button id="pause"></button>
+					<button id="rewind"></button>
+					<button id="skip"></button>
+
+				</div>
+
+			</div>
+
+			<form>
+				<input type="text" placeholder="Song Name" name="songName" id="songName"/>
+				<p></p>
+				<input type="text_2" placeholder="Artist" name="Artist" id="artist"/>
+				<p></p>
+				<input type="text_3" placeholder="URL" name="url" id="url"/>
+				<p></p>
+				<input type="button" id="addButton" value="Add Song"/>
+				<input type="button" id="clearButton" value="Clear Info">
+			</form>
+
+			<div id="library"></div>
+
+		</div>
+
+
+
+
+
+
+		<!-- == scripts == -->
+		<script type="text/javascript" src="script.js"></script>
+
+	</body>
+</html>
