@@ -3,9 +3,10 @@
 // Give the user the ability to stop that song without using the "built-in" stop button. Once again, this could be through a different button, through clicking or mousing over an image on the page, or any other device of your choosing.
 // Give the user the ability to load at least one different song into the Jukebox besides the one that is loaded when the page initially renders
 // The whole Jukebox should be backed by an object called Jukebox with methods to play, stop, and load songs.
+// document.addEventListener("DOMContentLoaded", function() { initialiseMediaPlayer(); }, false);
 
 var jukebox = {
-	myMusic: [ { songName: "Feather", artist: "Nujabes", url: "nujabes.com"}
+	myMusic: [ { songName: "Feather", artist: "Nujabes", url: "feather.mp3" }
 	],
 	initialize: function(){
 		console.log("== initialize ==");
@@ -70,7 +71,7 @@ var jukebox = {
 		console.log("== displaySelectedSong ==");
 		var songNameId = event.currentTarget.id;
 		console.log(event.currentTarget.id);
-		var songNameIndex = songNameId.indexof("_") + 1;
+		var songNameIndex = songNameId.indexOf("_") + 1;
 		console.log(songNameIndex);
 		var songIndex = songNameId.substring(songNameIndex);
 		console.log(songIndex);
@@ -81,10 +82,16 @@ var jukebox = {
 		musicTags[0].innerText = selectSong.songName;
 		musicTags[1].innerText = selectSong.artist;
 		musicTags[2].innerText = selectSong.url;
+		var audio_player = document.getElementById("audio_player");
+		audio_player.src = selectSong.url;
+		console.log("audio_player.src:", audio_player.src);
+		document.getElementById("audio_player").play();
+		console.log("audio_player:", audio_player);
 	},
-
-
-
+	// displayProgressBar: function() {
+	// 	console.log("== displayProgressBar ==");
+	//
+	// },
 	// clearNewSong: function(){
 	// 	console.log("== clearNewSong== ");
 	//
@@ -99,7 +106,6 @@ var jukebox = {
 		var playBtn = document.getElementById("play");
 		var pauseBtn = document.getElementById("pause");
 		var rewindBtn = document.getElementById("rewind");
-		// currentTime = rewind (sec)
 		var skipBtn = document.getElementById("skip");
 
 		playBtn.addEventListener("click", function(){
@@ -110,8 +116,12 @@ var jukebox = {
 			console.log("== pauseBtn ==");
 			audio_player.pause();
 		});
-
+		rewindBtn.addEventListener("click", function(){
+			console.log("== rewindBtn ==");
+			audio_player.currentTime = 0.
+		});
 	}
 
-}
+};
+
 jukebox.initialize();
