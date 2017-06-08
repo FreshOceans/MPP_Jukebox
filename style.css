@@ -32,11 +32,11 @@ h1 {
 
 /*======= Image ======*/
 #songImage {
-	/*border: solid;
+	border: solid;
 	border-color: yellow;
-	border-radius: 5px;*/
+	border-radius: 5px;
 	height: 300px;
-	width: auto;
+	width: 300px;
 	margin: auto;
 	padding: 10px;
 	background-repeat: no-repeat;
