@@ -7,6 +7,7 @@
 	    <title>MPP_Jukebox</title>
 
         <!-- === styles === -->
+				<link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC" rel="stylesheet">
 	    <link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 
@@ -18,7 +19,7 @@
 
 		<div id="jukebox">
 			<div id="jukebox_controls">
-				<div id="audio_player_img">
+				<div id="songImage">
 					<div id="songInfo"></div>
 				</div>
 
@@ -36,10 +37,11 @@
 			</div>
 
 			<div id="formContainer">
-				<form>
+				<form id=songForm>
 					<input type="text" placeholder="Song Name" name="songName" id="songName" class="formData"/>
 					<input type="text_2" placeholder="Artist" name="Artist" id="artist" class="formData"/>
 					<input type="text_3" placeholder="URL" name="url" id="url" class="formData"/>
+					<input type="file" placeholder="image" name="Image" id="Image" class="formData"/>
 					<input type="button" id="addButton" value="Add Song"/>
 					<input type="button" id="clearButton" value="Clear Info">
 				</form>
@@ -48,7 +50,10 @@
 			<div id="library">
 				<p>Playlist</p>
 					<ul id="songTitles"></ul>
+					<p>Song Info</p>
+
 					<div id="selectedSong">
+						<p class="songInfo">&nbsp;</p>
 						<p class="songInfo">&nbsp;</p>
 						<p class="songInfo">&nbsp;</p>
 						<p class="songInfo">&nbsp;</p>

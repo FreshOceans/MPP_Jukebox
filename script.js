@@ -7,9 +7,9 @@
 
 var jukebox = {
 	myMusic: [
-		{ songName: "Feather", artist: "Nujabes", url: "Music/feather.mp3" },
-		{ songName: "Intro" , artist: "The XX" , url: "Music/intro.mp3" },
-		{ songName: "Doin It Right" , artist: "Daft Pink" , url: "Music/DP.mp3" }
+		{ songName: "Feather", artist: "Nujabes", url: "Music/feather.mp3", image: "Images/Nujabes.jpg" },
+		{ songName: "Intro" , artist: "The XX" , url: "Music/intro.mp3", image: "Images/xx.png" },
+		{ songName: "Doin It Right" , artist: "Daft Pink" , url: "Music/DP.mp3", image: "Images/ram.jpg" }
 	],
 	initialize: function(){
 		console.log("== initialize ==");
@@ -21,9 +21,18 @@ var jukebox = {
 		console.log("== activateUserInterface ==");
 		var self = this;
 		var addButton = document.getElementById("addButton");
+		var clearButton = document.getElementById("clearButton")
 		addButton.addEventListener("click", function(){
 			self.addNewSong();
 		});
+		clearButton.addEventListener("click", function() {
+			self.clearForm();
+		});
+	},
+	// ======= Clear Method for Song Form ======
+	clearForm: function() {
+		console.log("== clearForm ==");
+		document.getElementById("songForm").reset();
 	},
 	// ====== Adding new Song to List ======
 	addNewSong: function(){
@@ -71,6 +80,7 @@ var jukebox = {
 			nextListItem.addEventListener("click", jukebox.displaySelectedSong);
 		};
 	},
+	// ====== Click on List =====
 	displaySelectedSong: function(event) {
 		console.log("== displaySelectedSong ==");
 		var songNameId = event.currentTarget.id;
@@ -86,11 +96,17 @@ var jukebox = {
 		musicTags[0].innerText = selectSong.songName;
 		musicTags[1].innerText = selectSong.artist;
 		musicTags[2].innerText = selectSong.url;
+		musicTags[3].innerText = selectSong.image;
 		var audio_player = document.getElementById("audio_player");
 		audio_player.src = selectSong.url;
 		console.log("audio_player.src:", audio_player.src);
 		document.getElementById("audio_player").play();
 		console.log("audio_player:", audio_player);
+		var songImage = document.getElementById("songImage")
+		console.log("songImage:", songImage);
+		var imgStr = "url('" + selectSong.image + "')";
+		console.log("imgStr:", imgStr);
+		songImage.style.backgroundImage = imgStr;
 	},
 	// displayProgressBar: function() {
 	// 	console.log("== displayProgressBar ==");
