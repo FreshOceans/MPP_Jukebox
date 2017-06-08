@@ -5,7 +5,8 @@
 // The whole Jukebox should be backed by an object called Jukebox with methods to play, stop, and load songs.
 
 var jukebox = {
-	myMusic: [],
+	myMusic: [ { songName: "Feather", artist: "Nujabes", url: "nujabes.com"}
+	],
 	initialize: function(){
 		console.log("== initialize ==");
 		this.activateUserInterface();
@@ -19,6 +20,7 @@ var jukebox = {
 			self.addNewSong();
 		});
 	},
+	// ====== Adding new Song to List ======
 	addNewSong: function(){
 		console.log("== addNewSong ==");
 		var self = this;
@@ -27,11 +29,12 @@ var jukebox = {
 		var songName = document.getElementById("songName").value;
 		var artist = document.getElementById("artist").value;
 		var url = document.getElementById("url").value;
-		// ===== Instance ====
+		// ===== Song Instance ====
 		var nextSong = new jukebox.Song(songName, artist, url);
 		this.myMusic.push(nextSong);
 		console.log(this.myMusic);
 		this.createMusicList();
+		this.activateMusicList();
 		},
 	// ===== Song Constructor =====
 	Song: function(songName, artist, url){
@@ -40,6 +43,7 @@ var jukebox = {
 		this.artist = artist;
 		this.url = url;
 	},
+	// ====== Creating Music List ======
 	createMusicList: function(){
 		console.log("== createMusicList ==");
 		var nextListItem = "";
@@ -49,12 +53,35 @@ var jukebox = {
 				nextListItem += "<li id='songName_" + i + "'>" + nextTrack + "</li>";
 			};
 			console.log(nextListItem);
-		document.getElementById("galleryTitles").innerHTML = nextListItem;
+		document.getElementById("songTitles").innerHTML = nextListItem;
 	},
-	// activateMusicList: function() {
-	// 	console.log("== activateMusicList ==");
-	// 	var listArray =
-	// }
+	// ======= Creating Clickable Song ======
+	activateMusicList: function() {
+		console.log("== activateMusicList ==");
+		var listArray = document.getElementById("songTitles").getElementsByTagName("li");
+		console.log(listArray);
+		for (var i = 0; i < listArray.length; i++) {
+			nextListItem = listArray[i];
+			console.log(nextListItem);
+			nextListItem.addEventListener("click", jukebox.displaySelectedSong);
+		};
+	},
+	displaySelectedSong: function(event) {
+		console.log("== displaySelectedSong ==");
+		var songNameId = event.currentTarget.id;
+		console.log(event.currentTarget.id);
+		var songNameIndex = songNameId.indexof("_") + 1;
+		console.log(songNameIndex);
+		var songIndex = songNameId.substring(songNameIndex);
+		console.log(songIndex);
+		var selectSong = jukebox.myMusic[songIndex];
+		console.log(selectSong);
+		var musicTags = document.getElementById("selectedSong").getElementsByTagName("p");
+		console.log(musicTags);
+		musicTags[0].innerText = selectSong.songName;
+		musicTags[1].innerText = selectSong.artist;
+		musicTags[2].innerText = selectSong.url;
+	},
 
 
 

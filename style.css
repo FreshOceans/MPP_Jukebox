@@ -1,1 +1,88 @@
+/*====== Header ======*/
+h1 {
+	text-align: center;
+	color: LawnGreen;
+}
 
+/*====== Jukebox ======*/
+#jukebox {
+	height: 800px;
+	width: auto;
+}
+
+#jukebox_controls {
+	height: 300px;
+	width: auto;
+}
+#audio_player_img {
+	height: 150px;
+	width: auto;
+}
+
+/*====== Audio_Player_Buttons =====*/
+.audio_player_buttons {
+	text-align: center;
+}
+#play {
+	background-color: green;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 10px;
+}
+#pause {
+	background-color: aqua;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 10px;
+}
+#rewind {
+	background-color: LightCoral;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 10px;
+}
+#skip {
+	background-color: MediumVioletRed;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 10px;
+}
+
+/*====== Form ======*/
+form {
+	height: 250px;
+	text-align: center;
+}
+.formData {
+	height: 20px;
+	width: 150px;
+	display: block;
+	margin: 5px auto;
+}
+
+/*====== Library ===== */
+#songTitles {
+	text-align: center;
+	list-style-type: none;
+	padding: 0;
+}
