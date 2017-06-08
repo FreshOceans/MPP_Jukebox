@@ -25,7 +25,7 @@
 				<div id="audio_player_controls">
 					<audio id="audio_player" src="">
 					</audio>
-					<progress id='progress-bar' min='0' max='100' value='0'>0% played</progress>
+					<!-- <progress id='progress-bar' min='0' max='100' value='0'>0% played</progress> -->
 					<div class="audio_player_buttons">
 						<button id="play">Play</button>
 						<button id="pause">Pause</button>
@@ -35,15 +35,18 @@
 				</div>
 			</div>
 
-			<form>
-				<input type="text" placeholder="Song Name" name="songName" id="songName" class="formData"/>
-				<input type="text_2" placeholder="Artist" name="Artist" id="artist" class="formData"/>
-				<input type="text_3" placeholder="URL" name="url" id="url" class="formData"/>
-				<input type="button" id="addButton" value="Add Song"/>
-				<input type="button" id="clearButton" value="Clear Info">
-			</form>
+			<div id="formContainer">
+				<form>
+					<input type="text" placeholder="Song Name" name="songName" id="songName" class="formData"/>
+					<input type="text_2" placeholder="Artist" name="Artist" id="artist" class="formData"/>
+					<input type="text_3" placeholder="URL" name="url" id="url" class="formData"/>
+					<input type="button" id="addButton" value="Add Song"/>
+					<input type="button" id="clearButton" value="Clear Info">
+				</form>
+			</div>
 
 			<div id="library">
+				<p>Playlist</p>
 					<ul id="songTitles"></ul>
 					<div id="selectedSong">
 						<p class="songInfo">&nbsp;</p>

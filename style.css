@@ -8,11 +8,18 @@ h1 {
 #jukebox {
 	height: 800px;
 	width: auto;
+	border: dotted;
+	border-color: black;
+	border-radius: 5px;
 }
 
 #jukebox_controls {
-	height: 300px;
+	height: 200px;
 	width: auto;
+	border: solid;
+	border-color: blue;
+	border-radius: 5px;
+	margin: 15px;
 }
 #audio_player_img {
 	height: 150px;
@@ -69,9 +76,17 @@ h1 {
 }
 
 /*====== Form ======*/
+#formContainer {
+	
+}
+
 form {
 	height: 250px;
 	text-align: center;
+	border: solid;
+	border-color: green;
+	width: 250px;
+	ju
 }
 .formData {
 	height: 20px;
@@ -81,6 +96,9 @@ form {
 }
 
 /*====== Library ===== */
+#library {
+	text-align: center;
+}
 #songTitles {
 	text-align: center;
 	list-style-type: none;

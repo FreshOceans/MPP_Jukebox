@@ -6,13 +6,17 @@
 // document.addEventListener("DOMContentLoaded", function() { initialiseMediaPlayer(); }, false);
 
 var jukebox = {
-	myMusic: [ { songName: "Feather", artist: "Nujabes", url: "feather.mp3" }
+	myMusic: [
+		{ songName: "Feather", artist: "Nujabes", url: "Music/feather.mp3" },
+		{ songName: "Intro" , artist: "The XX" , url: "Music/intro.mp3" },
+		{ songName: "Doin It Right" , artist: "Daft Pink" , url: "Music/DP.mp3" }
 	],
 	initialize: function(){
 		console.log("== initialize ==");
 		this.activateUserInterface();
 		this.activateAudioButtons();
 	},
+	// ====== Enable User Interaction ======
 	activateUserInterface: function(){
 		console.log("== activateUserInterface ==");
 		var self = this;
