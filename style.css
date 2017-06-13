@@ -10,11 +10,12 @@ h1 {
 
 /*====== Jukebox ======*/
 #jukebox {
-	height: auto;
-	width: auto;
+	height: 780px;
+	width: 600px;
 	border: dotted;
 	border-color: black;
 	border-radius: 5px;
+	margin: auto;
 }
 
 #jukebox_controls {
@@ -139,7 +140,7 @@ form {
 	border-color: red;
 	border-radius: 10px;
 	cursor: default;
-	margin: 20px 10px 0px 20px;
+	margin: 20px 10px 20px 20px;
 	float: left;
 
 }
