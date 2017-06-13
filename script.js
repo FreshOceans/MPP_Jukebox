@@ -6,15 +6,15 @@
 // document.addEventListener("DOMContentLoaded", function() { initialiseMediaPlayer(); }, false);
 
 var jukebox = {
-	myMusic: [
-		{ songName: "Feather", artist: "Nujabes", url: "Music/feather.mp3", image: "Images/Nujabes.jpg" },
-		{ songName: "Intro" , artist: "The XX" , url: "Music/intro.mp3", image: "Images/xx.png" },
-		{ songName: "Doin It Right" , artist: "Daft Pink" , url: "Music/DP.mp3", image: "Images/ram.jpg" }
-	],
+	myMusic: [],
+		// { songName: "Intro" , artist: "The XX" , url: "Music/intro.mp3", image: "Images/xx.png" },
+		// { songName: "Doin It Right" , artist: "Daft Pink" , url: "Music/DP.mp3", image: "Images/ram.jpg" }
+
 	initialize: function(){
 		console.log("== initialize ==");
 		this.activateUserInterface();
 		this.activateAudioButtons();
+		this.activateQuedSong();
 	},
 	// ====== Enable User Interaction ======
 	activateUserInterface: function(){
@@ -29,10 +29,43 @@ var jukebox = {
 			self.clearForm();
 		});
 	},
+	activateAudioButtons: function(){
+		console.log("== activateAudioButtons ==");
+		var self = this;
+		console.log("self:", self);
+		var audio_player = document.getElementById("audio_player");
+		console.log(audio_player);
+		// audio_player.volume = 1;
+		var playBtn = document.getElementById("play");
+		var pauseBtn = document.getElementById("pause");
+		var rewindBtn = document.getElementById("rewind");
+		var skipBtn = document.getElementById("skip");
+
+		playBtn.addEventListener("click", function(){
+			console.log("== playBtn ==");
+			audio_player.play();
+		});
+		pauseBtn.addEventListener("click", function(){
+			console.log("== pauseBtn ==");
+			audio_player.pause();
+		});
+		rewindBtn.addEventListener("click", function(){
+			console.log("== rewindBtn ==");
+			audio_player.currentTime = 0.
+		});
+	},
 	// ======= Clear Method for Song Form ======
 	clearForm: function() {
 		console.log("== clearForm ==");
 		document.getElementById("songForm").reset();
+	},
+	// ====== Song Que on load ======
+	activateQuedSong: function() {
+		console.log("== activateQuedSong ==");
+		$('#play').on('click', function(e){
+			$("#audio_player").attr("src","music/feather.mp3").trigger('play');
+			$('#songImage').css('backgroundImage','url(images/nujabes.jpg)');
+		})
 	},
 	// ====== Adding new Song to List ======
 	addNewSong: function(){
@@ -50,13 +83,6 @@ var jukebox = {
 		this.createMusicList();
 		this.activateMusicList();
 		},
-	// ===== Song Constructor =====
-	Song: function(songName, artist, url){
-		console.log("== Song ==");
-		this.songName = songName;
-		this.artist = artist;
-		this.url = url;
-	},
 	// ====== Creating Music List ======
 	createMusicList: function(){
 		console.log("== createMusicList ==");
@@ -84,64 +110,42 @@ var jukebox = {
 	displaySelectedSong: function(event) {
 		console.log("== displaySelectedSong ==");
 		var songNameId = event.currentTarget.id;
-		console.log(event.currentTarget.id);
 		var songNameIndex = songNameId.indexOf("_") + 1;
-		console.log(songNameIndex);
 		var songIndex = songNameId.substring(songNameIndex);
-		console.log(songIndex);
 		var selectSong = jukebox.myMusic[songIndex];
-		console.log(selectSong);
 		var musicTags = document.getElementById("selectedSong").getElementsByTagName("p");
-		console.log(musicTags);
 		musicTags[0].innerText = selectSong.songName;
 		musicTags[1].innerText = selectSong.artist;
 		musicTags[2].innerText = selectSong.url;
 		musicTags[3].innerText = selectSong.image;
 		var audio_player = document.getElementById("audio_player");
 		audio_player.src = selectSong.url;
-		console.log("audio_player.src:", audio_player.src);
 		document.getElementById("audio_player").play();
-		console.log("audio_player:", audio_player);
-		var songImage = document.getElementById("songImage")
-		console.log("songImage:", songImage);
+		var songImage = document.getElementById("songImage");
 		var imgStr = "url('" + selectSong.image + "')";
-		console.log("imgStr:", imgStr);
 		songImage.style.backgroundImage = imgStr;
 	},
+	// ===== Song Constructor =====
+	Song: function(songName, artist, url){
+		console.log("== Song ==");
+		this.songName = songName;
+		this.artist = artist;
+		this.url = url;
+	}
 	// displayProgressBar: function() {
 	// 	console.log("== displayProgressBar ==");
 	//
 	// },
-	// clearNewSong: function(){
-	// 	console.log("== clearNewSong== ");
-	//
-	// },
-	activateAudioButtons: function(){
-		console.log("== activateAudioButtons ==");
-		var self = this;
-		console.log("self:", self);
-		var audio_player = document.getElementById("audio_player");
-		console.log(audio_player);
-		// audio_player.volume = 1;
-		var playBtn = document.getElementById("play");
-		var pauseBtn = document.getElementById("pause");
-		var rewindBtn = document.getElementById("rewind");
-		var skipBtn = document.getElementById("skip");
-
-		playBtn.addEventListener("click", function(){
-			console.log("== playBtn ==");
-			audio_player.play();
-		});
-		pauseBtn.addEventListener("click", function(){
-			console.log("== pauseBtn ==");
-			audio_player.pause();
-		});
-		rewindBtn.addEventListener("click", function(){
-			console.log("== rewindBtn ==");
-			audio_player.currentTime = 0.
-		});
-	}
-
 };
 
 jukebox.initialize();
+
+// console.log(event.currentTarget.id);
+// console.log(songNameIndex);
+// console.log(songIndex);
+// console.log(selectSong);
+// console.log(musicTags);
+// console.log("audio_player.src:", audio_player.src);
+// console.log("audio_player:", audio_player);
+// console.log("songImage:", songImage);
+// console.log("imgStr:", imgStr);

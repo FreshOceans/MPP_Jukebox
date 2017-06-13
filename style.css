@@ -139,6 +139,7 @@ form {
 	cursor: default;
 	margin: auto;
 	margin-top: 10px;
+	/*float: left;*/
 
 }
 #songTitles {
@@ -149,7 +150,8 @@ form {
 	list-style-type: none;
 	padding: 0;
 	cursor: pointer;
+	/*float: left;*/
 }
 #selectedSong {
-
+	/*float: left;*/
 }
