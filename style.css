@@ -104,6 +104,8 @@ h1 {
 #formContainer {
 	display: block;
 	text-align: center;
+	float: left;
+	margin: 20px;
 }
 
 form {
@@ -137,9 +139,8 @@ form {
 	border-color: red;
 	border-radius: 10px;
 	cursor: default;
-	margin: auto;
-	margin-top: 10px;
-	/*float: left;*/
+	margin: 20px 10px 0px 20px;
+	float: left;
 
 }
 #songTitles {
